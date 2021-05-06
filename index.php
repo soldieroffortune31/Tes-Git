@@ -8,13 +8,12 @@
 </head>
 <body>
 	<input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search for names..">
-	<table class="table table-bordered" id = "myTable">
-		<thead class="table-dark">
-			<th>No.</th>
-			<th>Nama</th>
-			<th>Alamat</th>
-		</thead>
-		<tbody>
+	<table id="myTable">
+		<tr class="header">
+			<th width="10%">No.</th>
+			<th width="50%">Nama</th>
+			<th width="40%">Alamat</th>
+		</tr>
 			<tr>
 				<td>1</td>
 				<td>Aliefsufi Uzan Kafil Ardi</td>
@@ -22,14 +21,11 @@
 			</tr>
 			<tr>
 				<td>2</td>
-				<td>Uzan</td>
-				<td>Rondokuning</td>
+				<td>Cito</td>
+				<td>Sukomulyo</td>
 			</tr>
-		</tbody>
 	</table>
-	<button class="btn btn-primary">
-		Click Here
-	</button>
+
 	<script>
 function myFunction() {
   var input, filter, table, tr, td, i, txtValue;
@@ -37,8 +33,8 @@ function myFunction() {
   filter = input.value.toUpperCase();
   table = document.getElementById("myTable");
   tr = table.getElementsByTagName("tr");
-  for (i = 0; i < tr.length; i++) {
-    td = tr[i].getElementsByTagName("td")[0];
+  for (i = 1; i < tr.length; i++) {
+    td = tr[i].getElementsByTagName("td")[1];
     if (td) {
       txtValue = td.textContent || td.innerText;
       if (txtValue.toUpperCase().indexOf(filter) > -1) {
@@ -48,6 +44,14 @@ function myFunction() {
       }
     }       
   }
+//   $(document).ready(function(){
+//   $("#myInput").on("keyup", function() {
+//     var value = $(this).val().toLowerCase();
+//     $("#myTable tr").filter(function() {
+//       $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+//     });
+//   });
+// });
 }
 </script>
 
